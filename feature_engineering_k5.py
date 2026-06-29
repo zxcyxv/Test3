@@ -1,10 +1,10 @@
 """
-Feature Engineering Script (K=10 Events)
-축구 이벤트 데이터에서 마지막 10개 이벤트를 와이드 포맷으로 변환
+Feature Engineering Script (K=8 Events)
+축구 이벤트 데이터에서 마지막 8개 이벤트를 와이드 포맷으로 변환
 
-총 피처 수: 165개
-- A. 전체 10개 이벤트: 11개 × 10 = 110개 (is_last 포함)
-- B. 첫 9개 이벤트 (마스킹): 6개 × 9 = 54개
+총 피처 수: 131개
+- A. 전체 8개 이벤트: 11개 × 8 = 88개
+- B. 첫 7개 이벤트 (마스킹): 6개 × 7 = 42개
 - C. 에피소드 레벨: 1개
 
 제외된 피처: team_id_enc, is_home, period_id (패스 위치 예측에 무관)
@@ -211,7 +211,7 @@ def process_train_data():
     print("Encoding categorical variables...")
     df, encoders = encode_categorical(df)
 
-    print("Creating wide format features (K=10)...")
+    print(f"Creating wide format features (K={K})...")
     wide_df = create_wide_features(df, k=K)
     print(f"Created {len(wide_df)} episode features")
 
@@ -230,7 +230,7 @@ def process_test_data(encoders):
     print("Encoding categorical variables...")
     df, _ = encode_categorical(df, encoders)
 
-    print("Creating wide format features (K=10)...")
+    print(f"Creating wide format features (K={K})...")
     wide_df = create_wide_features(df, k=K)
     print(f"Created {len(wide_df)} episode features")
 

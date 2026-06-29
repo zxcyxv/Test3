@@ -1,0 +1,14 @@
+__pycache__/
+*.py[oc]
+.venv/
+.ipynb_checkpoints/
+
+# Kaggle data and generated artifacts
+open_track1/
+models/
+*.pt
+*.pth
+*.csv
+*.json
+router_diagnosis.png
+router_grid_heatmap.png

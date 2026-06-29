@@ -1,0 +1,15 @@
+[project]
+name = "soccer-router-xgb"
+version = "0.1.0"
+description = "Hybrid Transformer router and XGBoost pipeline for K-League pass endpoint prediction."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scikit-learn>=1.4",
+    "scipy>=1.11",
+    "torch>=2.2",
+    "xgboost>=2.0",
+]

@@ -12,6 +12,7 @@ from pathlib import Path
 import sys
 
 ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = ROOT_DIR.parent
 DATA_DIR = ROOT_DIR / "open_track1"
 MODEL_PATH = DATA_DIR / "film_smoe_transformer.pt"
 
@@ -228,8 +229,9 @@ def main():
     print(f"  해석: {'양의 상관 (올바른 방향)' if corr > 0 else '음의 상관 또는 무관'}")
 
     plt.tight_layout()
-    plt.savefig('/workspace/SoccerPredict/router_diagnosis.png', dpi=150)
-    print(f"\n히트맵 저장: /workspace/SoccerPredict/router_diagnosis.png")
+    diagnosis_path = ROOT_DIR / "router_diagnosis.png"
+    plt.savefig(diagnosis_path, dpi=150)
+    print(f"\n히트맵 저장: {diagnosis_path}")
 
     # =========================================================================
     # 진단 3: Grid-based Gate 히트맵 (합성 데이터)
@@ -279,8 +281,9 @@ def main():
 
     plt.colorbar(im, ax=ax, label='Gate (0=InField, 1=Boundary)')
     plt.tight_layout()
-    plt.savefig('/workspace/SoccerPredict/router_grid_heatmap.png', dpi=150)
-    print(f"Grid 히트맵 저장: /workspace/SoccerPredict/router_grid_heatmap.png")
+    output_path = ROOT_DIR / "router_grid_heatmap.png"
+    plt.savefig(output_path, dpi=150)
+    print(f"Grid 히트맵 저장: {output_path}")
 
     # Grid 통계
     print(f"\n[Grid Gate 통계]")
